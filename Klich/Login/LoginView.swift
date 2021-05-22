@@ -142,7 +142,7 @@ struct LoginView: View {
                         .frame(maxWidth: .infinity)
                         .padding(4)
                 })
-                .disabled(buttonDisabled || !fieldsEmpty)
+                .disabled(isLoadingRequest)
             }
             .padding(.horizontal)
             .padding(.bottom, 70)
