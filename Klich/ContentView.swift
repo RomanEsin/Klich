@@ -16,7 +16,9 @@ struct ContentView: View {
             VStack {
                 Text("You've logged in!")
                 Button(action: {
-                    isLoggedIn = false
+                    withAnimation {
+                        isLoggedIn = false
+                    }
                 }, label: {
                     Text("Выйти из аккаунта")
                 })
