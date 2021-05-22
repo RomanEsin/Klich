@@ -17,6 +17,7 @@
 		F14079492658FCF700BB3F8F /* KlickAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14079482658FCF700BB3F8F /* KlickAPI.swift */; };
 		F140794B2658FD6000BB3F8F /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F140794A2658FD6000BB3F8F /* NetworkManager.swift */; };
 		F140794D2658FD7000BB3F8F /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = F140794C2658FD7000BB3F8F /* Models.swift */; };
+		F14079502658FE3400BB3F8F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F140794F2658FE3400BB3F8F /* Colors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		F14079482658FCF700BB3F8F /* KlickAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KlickAPI.swift; sourceTree = "<group>"; };
 		F140794A2658FD6000BB3F8F /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		F140794C2658FD7000BB3F8F /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		F140794F2658FE3400BB3F8F /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 		F14079302658EE1800BB3F8F /* Klich */ = {
 			isa = PBXGroup;
 			children = (
+				F140794E2658FE2D00BB3F8F /* Styles */,
 				F14079472658FCE400BB3F8F /* Networking */,
 				F14079312658EE1800BB3F8F /* AppDelegate.swift */,
 				F14079332658EE1800BB3F8F /* SceneDelegate.swift */,
@@ -93,6 +96,14 @@
 				F140794C2658FD7000BB3F8F /* Models.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		F140794E2658FE2D00BB3F8F /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				F140794F2658FE3400BB3F8F /* Colors.swift */,
+			);
+			path = Styles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -166,6 +177,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F140794B2658FD6000BB3F8F /* NetworkManager.swift in Sources */,
+				F14079502658FE3400BB3F8F /* Colors.swift in Sources */,
 				F14079322658EE1800BB3F8F /* AppDelegate.swift in Sources */,
 				F14079342658EE1800BB3F8F /* SceneDelegate.swift in Sources */,
 				F14079492658FCF700BB3F8F /* KlickAPI.swift in Sources */,

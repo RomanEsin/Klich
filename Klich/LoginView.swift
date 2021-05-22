@@ -11,44 +11,66 @@ struct LoginView: View {
 
     @Binding var isLoggedIn: Bool
 
+    @State var isLoggingIn = false
+
     @State var username = ""
     @State var password = ""
 
     func register() {
         let user = User(username: username, password: password)
-        KlichAPI.register(user: user) { result in
-            switch result {
-            case .failure(let error):
-                print(error.localizedDescription)
-            case .success(let token):
-                isLoggedIn = true
-                print(token.token)
+
+        DispatchQueue.main.async {
+            KlichAPI.register(user: user) { result in
+                switch result {
+                case .failure(let error):
+                    print(error.localizedDescription)
+                case .success(let token):
+                    withAnimation {
+                        isLoggedIn = true
+                    }
+                    print(token.token)
+                }
             }
         }
     }
 
     func login() {
         let user = User(username: username, password: password)
-        KlichAPI.login(user: user) { result in
-            switch result {
-            case .failure(let error):
-                print(error.localizedDescription)
-            case .success(let token):
-                isLoggedIn = true
-                print(token.token)
+
+        DispatchQueue.main.async {
+            KlichAPI.login(user: user) { result in
+                switch result {
+                case .failure(let error):
+                    print(error.localizedDescription)
+                case .success(let token):
+                    withAnimation {
+                        isLoggedIn = true
+                    }
+                    print(token.token)
+                }
             }
         }
     }
 
     var body: some View {
         VStack {
-            VStack(alignment: .leading) {
+            VStack(alignment: .center) {
                 Spacer()
+
+                Text(isLoggingIn ? "Вход" : "Регистрация")
+                    .foregroundColor(.klichDarkBlue)
+                    .font(.largeTitle.bold())
+                    .padding(.vertical)
 
                 VStack {
                     TextField("Username", text: $username)
+                        .textContentType(.username)
+                        .autocapitalization(.none)
+                        .disableAutocorrection(true)
                     Divider()
-                    TextField("Password", text: $password)
+                    SecureField("Password", text: $password)
+                        .textContentType(.password)
+                        .autocapitalization(.none)
                 }
                 .padding()
                 .background(Color.white)
@@ -57,29 +79,41 @@ struct LoginView: View {
                 Spacer()
 
                 Button(action: {
-                    register()
+                    if isLoggingIn {
+                        login()
+                    } else {
+                        register()
+                    }
                 }, label: {
-                    Text("Зарегистрироваться")
+                    Text(isLoggingIn ? "Войти" : "Зарегистрироваться")
                         .foregroundColor(.white)
                         .frame(maxWidth: .infinity)
                         .padding()
-                        .background(Color.accentColor)
+                        .background(Color.klichPurple)
                         .cornerRadius(16)
                 })
 
                 Button(action: {
-                    login()
+                    withAnimation(.spring()) {
+                        isLoggingIn.toggle()
+                    }
                 }, label: {
-                    Text("Уже есть аккаунт? Войти")
-                        .foregroundColor(.accentColor)
+                    Text(isLoggingIn ? "Нету аккаунта? Зарегистрироваться" : "Уже есть аккаунт? Войти")
+                        .foregroundColor(.klichPurple)
                         .frame(maxWidth: .infinity)
                         .padding(4)
                 })
             }
             .padding(.horizontal)
-            .padding(.bottom, 50)
+            .padding(.bottom, 60)
         }
         .background(Color(UIColor.systemGroupedBackground))
         .ignoresSafeArea()
+    }
+}
+
+struct LoginView_Previews: PreviewProvider {
+    static var previews: some View {
+        LoginView(isLoggedIn: .constant(false))
     }
 }

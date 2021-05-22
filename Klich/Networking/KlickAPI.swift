@@ -12,11 +12,11 @@ class KlichAPI {
 
     static func register(user: User, completion: @escaping (Result<Token, Error>) -> Void) {
         let url = rootURL.appendingPathComponent("user").appendingPathComponent("register")
-        NetworkManager.post(url, data: user, decodeTo: Token.self, completion: completion)
+        NetworkManager.post(url, data: user, completion: completion)
     }
 
     static func login(user: User, completion: @escaping (Result<Token, Error>) -> Void) {
         let url = rootURL.appendingPathComponent("user").appendingPathComponent("login")
-        NetworkManager.post(url, data: user, decodeTo: Token.self, completion: completion)
+        NetworkManager.post(url, data: user, completion: completion)
     }
 }
