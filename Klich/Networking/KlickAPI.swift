@@ -8,7 +8,7 @@
 import Foundation
 
 class KlichAPI {
-    static let rootURL = URL(string: "http://127.0.0.1:8000/")!
+    static let rootURL = URL(string: "https://klich-api.herokuapp.com/")!
 
     static func register(user: User, completion: @escaping (Result<Token, Error>) -> Void) {
         let url = rootURL.appendingPathComponent("user").appendingPathComponent("register")
