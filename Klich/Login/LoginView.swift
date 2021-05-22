@@ -38,6 +38,7 @@ struct LoginView: View {
                     withAnimation {
                         isLoggedIn = true
                     }
+                    UDManager.save(token.token, key: "userToken")
                     print(token.token)
                 }
             }
@@ -60,6 +61,7 @@ struct LoginView: View {
                     withAnimation {
                         isLoggedIn = true
                     }
+                    UDManager.save(token.token, key: "userToken")
                     print(token.token)
                 }
             }

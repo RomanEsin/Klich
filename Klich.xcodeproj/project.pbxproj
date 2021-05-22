@@ -18,6 +18,7 @@
 		F140794B2658FD6000BB3F8F /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F140794A2658FD6000BB3F8F /* NetworkManager.swift */; };
 		F140794D2658FD7000BB3F8F /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = F140794C2658FD7000BB3F8F /* Models.swift */; };
 		F14079502658FE3400BB3F8F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F140794F2658FE3400BB3F8F /* Colors.swift */; };
+		F14079542659112B00BB3F8F /* UDManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14079532659112B00BB3F8F /* UDManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		F140794A2658FD6000BB3F8F /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		F140794C2658FD7000BB3F8F /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		F140794F2658FE3400BB3F8F /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		F14079532659112B00BB3F8F /* UDManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 		F14079302658EE1800BB3F8F /* Klich */ = {
 			isa = PBXGroup;
 			children = (
+				F14079522659112200BB3F8F /* UD */,
 				F14079312658EE1800BB3F8F /* AppDelegate.swift */,
 				F14079332658EE1800BB3F8F /* SceneDelegate.swift */,
 				F140795126590AE900BB3F8F /* Login */,
@@ -112,6 +115,14 @@
 				F14079452658FCCC00BB3F8F /* LoginView.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		F14079522659112200BB3F8F /* UD */ = {
+			isa = PBXGroup;
+			children = (
+				F14079532659112B00BB3F8F /* UDManager.swift */,
+			);
+			path = UD;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,6 +198,7 @@
 				F140794B2658FD6000BB3F8F /* NetworkManager.swift in Sources */,
 				F14079502658FE3400BB3F8F /* Colors.swift in Sources */,
 				F14079322658EE1800BB3F8F /* AppDelegate.swift in Sources */,
+				F14079542659112B00BB3F8F /* UDManager.swift in Sources */,
 				F14079342658EE1800BB3F8F /* SceneDelegate.swift in Sources */,
 				F14079492658FCF700BB3F8F /* KlickAPI.swift in Sources */,
 				F14079462658FCCC00BB3F8F /* LoginView.swift in Sources */,

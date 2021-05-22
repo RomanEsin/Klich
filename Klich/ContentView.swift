@@ -7,15 +7,9 @@
 
 import SwiftUI
 
-class UserDefaultsManager {
-    static var shared = UserDefaultsManager()
-
-    private init() {}
-}
-
 struct ContentView: View {
 
-    @State var isLoggedIn = false
+    @State var isLoggedIn: Bool
 
     var body: some View {
         if isLoggedIn {
@@ -36,6 +30,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(isLoggedIn: false)
     }
 }
