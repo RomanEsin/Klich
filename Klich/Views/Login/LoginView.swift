@@ -9,6 +9,7 @@ import SwiftUI
 
 struct LoginView: View {
 
+    @Binding var userToken: String
     @Binding var isLoggedIn: Bool
 
     @State var isLoggingIn = false
@@ -38,6 +39,7 @@ struct LoginView: View {
                     withAnimation {
                         isLoggedIn = true
                     }
+                    userToken = token.token
                     UDManager.save(token.token, key: "userToken")
                     print(token.token)
                 }
@@ -61,6 +63,7 @@ struct LoginView: View {
                     withAnimation {
                         isLoggedIn = true
                     }
+                    userToken = token.token
                     UDManager.save(token.token, key: "userToken")
                     print(token.token)
                 }
