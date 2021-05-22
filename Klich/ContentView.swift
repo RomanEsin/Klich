@@ -14,7 +14,7 @@ struct ContentView: View {
     var body: some View {
         if isLoggedIn {
             VStack {
-                Text("You logged in!")
+                Text("You've logged in!")
                 Button(action: {
                     isLoggedIn = false
                 }, label: {
