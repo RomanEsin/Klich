@@ -20,8 +20,10 @@ struct LoginView: View {
     @State var hasError = false
     @State var errorText = ""
 
+    @State var userType = 0
+
     func register() {
-        let user = User(username: username, password: password)
+        let user = User(username: username, password: password, userType: userType)
 
         DispatchQueue.main.async {
             isLoadingRequest = true
@@ -43,7 +45,7 @@ struct LoginView: View {
     }
 
     func login() {
-        let user = User(username: username, password: password)
+        let user = User(username: username, password: password, userType: userType)
 
         DispatchQueue.main.async {
             isLoadingRequest = true
@@ -77,6 +79,15 @@ struct LoginView: View {
                     .foregroundColor(.klichDarkBlue)
                     .font(.largeTitle.bold())
                     .padding(.vertical)
+
+                Picker("", selection: $userType) {
+                    Text("Студент")
+                        .tag(0)
+                    Text("Организация")
+                        .tag(1)
+                }
+                .pickerStyle(SegmentedPickerStyle())
+                .padding(.vertical)
 
                 VStack {
                     TextField("Username", text: $username)

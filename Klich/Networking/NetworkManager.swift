@@ -28,7 +28,9 @@ class NetworkManager {
                 return
             }
 
-            guard let decoded = try? JSONDecoder().decode(T.self, from: data!) else { return }
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            guard let decoded = try? decoder.decode(T.self, from: data!) else { return }
             completion(.success(decoded))
         }.resume()
     }
@@ -38,7 +40,9 @@ class NetworkManager {
         request.httpMethod = "POST"
 
         do {
-            request.httpBody = try JSONEncoder().encode(data)
+            let encoder = JSONEncoder()
+            encoder.keyEncodingStrategy = .convertToSnakeCase
+            request.httpBody = try encoder.encode(data)
         } catch {
             completion(.failure(error))
         }
