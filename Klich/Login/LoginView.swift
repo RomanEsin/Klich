@@ -66,8 +66,12 @@ struct LoginView: View {
         }
     }
 
+    var fieldsEmpty: Bool {
+        username.isEmpty || password.isEmpty
+    }
+
     var buttonDisabled: Bool {
-        username.isEmpty || password.isEmpty || isLoadingRequest
+        fieldsEmpty || isLoadingRequest
     }
 
     var body: some View {
@@ -138,7 +142,7 @@ struct LoginView: View {
                         .frame(maxWidth: .infinity)
                         .padding(4)
                 })
-                .disabled(buttonDisabled)
+                .disabled(buttonDisabled || !fieldsEmpty)
             }
             .padding(.horizontal)
             .padding(.bottom, 70)
