@@ -13,6 +13,7 @@ struct LoginView: View {
 
     @State var isLoggingIn = false
 
+    @State var isLoadingRequest = false
     @State var username = ""
     @State var password = ""
 
@@ -52,6 +53,10 @@ struct LoginView: View {
         }
     }
 
+    var buttonDisabled: Bool {
+        username.isEmpty || password.isEmpty
+    }
+
     var body: some View {
         VStack {
             VStack(alignment: .center) {
@@ -85,12 +90,19 @@ struct LoginView: View {
                         register()
                     }
                 }, label: {
-                    Text(isLoggingIn ? "Войти" : "Зарегистрироваться")
-                        .foregroundColor(.white)
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(Color.klichPurple)
-                        .cornerRadius(16)
+                    VStack {
+                        if isLoadingRequest {
+                            ProgressView()
+                        } else {
+                            Text(isLoggingIn ? "Войти" : "Зарегистрироваться")
+                        }
+                    }
+                    .foregroundColor(.white)
+                    .frame(height: 25)
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(Color.klichPurple)
+                    .cornerRadius(16)
                 })
 
                 Button(action: {
@@ -105,7 +117,7 @@ struct LoginView: View {
                 })
             }
             .padding(.horizontal)
-            .padding(.bottom, 60)
+            .padding(.bottom, 70)
         }
         .background(Color(UIColor.systemGroupedBackground))
         .ignoresSafeArea()
