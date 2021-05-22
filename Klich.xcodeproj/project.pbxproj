@@ -66,12 +66,12 @@
 		F14079302658EE1800BB3F8F /* Klich */ = {
 			isa = PBXGroup;
 			children = (
-				F140794E2658FE2D00BB3F8F /* Styles */,
-				F14079472658FCE400BB3F8F /* Networking */,
 				F14079312658EE1800BB3F8F /* AppDelegate.swift */,
 				F14079332658EE1800BB3F8F /* SceneDelegate.swift */,
+				F140795126590AE900BB3F8F /* Login */,
+				F140794E2658FE2D00BB3F8F /* Styles */,
+				F14079472658FCE400BB3F8F /* Networking */,
 				F14079352658EE1800BB3F8F /* ContentView.swift */,
-				F14079452658FCCC00BB3F8F /* LoginView.swift */,
 				F14079372658EE1900BB3F8F /* Assets.xcassets */,
 				F140793C2658EE1900BB3F8F /* LaunchScreen.storyboard */,
 				F140793F2658EE1900BB3F8F /* Info.plist */,
@@ -91,9 +91,9 @@
 		F14079472658FCE400BB3F8F /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				F14079482658FCF700BB3F8F /* KlickAPI.swift */,
 				F140794A2658FD6000BB3F8F /* NetworkManager.swift */,
 				F140794C2658FD7000BB3F8F /* Models.swift */,
+				F14079482658FCF700BB3F8F /* KlickAPI.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -104,6 +104,14 @@
 				F140794F2658FE3400BB3F8F /* Colors.swift */,
 			);
 			path = Styles;
+			sourceTree = "<group>";
+		};
+		F140795126590AE900BB3F8F /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				F14079452658FCCC00BB3F8F /* LoginView.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

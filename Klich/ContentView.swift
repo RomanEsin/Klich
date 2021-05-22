@@ -19,7 +19,14 @@ struct ContentView: View {
 
     var body: some View {
         if isLoggedIn {
-            Text("You logged in!")
+            VStack {
+                Text("You logged in!")
+                Button(action: {
+                    isLoggedIn = false
+                }, label: {
+                    Text("Выйти из аккаунта")
+                })
+            }
         } else {
             LoginView(isLoggedIn: $isLoggedIn)
         }

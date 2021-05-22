@@ -15,3 +15,7 @@ struct User: Codable {
     let username: String
     let password: String?
 }
+
+struct ErrorDetail: Codable {
+    let detail: String
+}

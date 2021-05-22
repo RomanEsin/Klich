@@ -17,6 +17,12 @@ class NetworkManager {
                 if let error = error {
                     completion(.failure(error))
                 }
+
+                if let data = data, let stringError = String(data: data, encoding: .utf8) {
+                    let error = NSError(domain: stringError, code: 0, userInfo: nil)
+                    completion(.failure(error))
+                }
+
                 let error = NSError(domain: "Response != 200", code: 0, userInfo: nil)
                 completion(.failure(error))
                 return
@@ -42,6 +48,14 @@ class NetworkManager {
                 if let error = error {
                     completion(.failure(error))
                 }
+
+                if let data = data,
+                   let detail = try? JSONDecoder().decode(ErrorDetail.self, from: data) {
+                    let error = NSError(domain: detail.detail, code: 0, userInfo: nil)
+                    completion(.failure(error))
+                    return
+                }
+
                 let error = NSError(domain: "Response != 200", code: 0, userInfo: nil)
                 completion(.failure(error))
                 return

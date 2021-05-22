@@ -17,14 +17,21 @@ struct LoginView: View {
     @State var username = ""
     @State var password = ""
 
+    @State var hasError = false
+    @State var errorText = ""
+
     func register() {
         let user = User(username: username, password: password)
 
         DispatchQueue.main.async {
+            isLoadingRequest = true
             KlichAPI.register(user: user) { result in
+                isLoadingRequest = false
                 switch result {
                 case .failure(let error):
                     print(error.localizedDescription)
+                    errorText = error.localizedDescription
+                    hasError = true
                 case .success(let token):
                     withAnimation {
                         isLoggedIn = true
@@ -39,10 +46,14 @@ struct LoginView: View {
         let user = User(username: username, password: password)
 
         DispatchQueue.main.async {
+            isLoadingRequest = true
             KlichAPI.login(user: user) { result in
+                isLoadingRequest = false
                 switch result {
                 case .failure(let error):
                     print(error.localizedDescription)
+                    errorText = error.localizedDescription
+                    hasError = true
                 case .success(let token):
                     withAnimation {
                         isLoggedIn = true
@@ -54,7 +65,7 @@ struct LoginView: View {
     }
 
     var buttonDisabled: Bool {
-        username.isEmpty || password.isEmpty
+        username.isEmpty || password.isEmpty || isLoadingRequest
     }
 
     var body: some View {
@@ -101,9 +112,10 @@ struct LoginView: View {
                     .frame(height: 25)
                     .frame(maxWidth: .infinity)
                     .padding()
-                    .background(Color.klichPurple)
+                    .background(buttonDisabled ? Color.klichPurple.opacity(0.2) : Color.klichPurple)
                     .cornerRadius(16)
                 })
+                .disabled(buttonDisabled)
 
                 Button(action: {
                     withAnimation(.spring()) {
@@ -115,12 +127,16 @@ struct LoginView: View {
                         .frame(maxWidth: .infinity)
                         .padding(4)
                 })
+                .disabled(buttonDisabled)
             }
             .padding(.horizontal)
             .padding(.bottom, 70)
         }
         .background(Color(UIColor.systemGroupedBackground))
         .ignoresSafeArea()
+        .alert(isPresented: $hasError, content: {
+            Alert(title: Text(errorText))
+        })
     }
 }
 
