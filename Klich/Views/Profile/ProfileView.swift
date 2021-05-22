@@ -12,7 +12,11 @@ struct ProfileView: View {
     @Binding var userToken: String
 
     var body: some View {
-        Text("Hello, World!")
+        NavigationView {
+            ScrollView {
+                Text("asdf")
+            }
+        }
     }
 }
 

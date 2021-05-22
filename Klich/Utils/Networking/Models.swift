@@ -9,6 +9,7 @@ import Foundation
 
 struct Token: Codable {
     let token: String
+    let userType: Int
 }
 
 struct User: Codable {

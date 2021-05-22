@@ -162,6 +162,6 @@ struct LoginView: View {
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView(isLoggedIn: .constant(false))
+        LoginView(userToken: .constant("2f8547ced1e6405e68c534b926447c21"), isLoggedIn: .constant(false))
     }
 }
