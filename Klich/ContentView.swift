@@ -13,8 +13,6 @@ class UserDefaultsManager {
     private init() {}
 }
 
-
-
 struct ContentView: View {
 
     @State var isLoggedIn = false
