@@ -7,15 +7,22 @@
 
 import Foundation
 
+struct Category: Identifiable, Codable {
+    let id: Int
+    let name: String
+}
+
 struct Token: Codable {
     let token: String
     let userType: Int
 }
 
 struct User: Codable {
-    let username: String
+    let username: String?
     let password: String?
-    let userType: Int
+    let userType: Int?
+    var fullName: String?
+    var about: String?
 }
 
 struct ErrorDetail: Codable {

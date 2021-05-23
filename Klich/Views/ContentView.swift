@@ -9,16 +9,27 @@ import SwiftUI
 
 struct ContentView: View {
 
-    @State var userToken: String
+    @ObservedObject var userData = UserData()
     @State var isLoggedIn: Bool
 
     var body: some View {
         if isLoggedIn {
             TabView {
-                ProfileView(userToken: $userToken)
+                KlichLike()
+//                SubmitView(userData: userData, klichStyle: .community)
+                    .tag(0)
+                    .tabItem { Label("Поиск", systemImage: "magnifyingglass") }
+
+                SubmitView(userData: userData, klichStyle: .community)
+                    .tag(1)
+                    .tabItem { Label("Подать клич", systemImage: "plus.square.fill") }
+
+                ProfileView(userData: userData)
+                    .tag(2)
+                    .tabItem { Label("Профиль", systemImage: "person.crop.circle.fill") }
             }
         } else {
-            LoginView(userToken: $userToken, isLoggedIn: $isLoggedIn)
+            LoginView(userData: userData, isLoggedIn: $isLoggedIn)
         }
     }
 }
@@ -26,6 +37,8 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(userToken: "2f8547ced1e6405e68c534b926447c21", isLoggedIn: false)
+        let userData = UserData()
+        userData.userToken = "2f8547ced1e6405e68c534b926447c21"
+        return ContentView(userData: userData, isLoggedIn: false)
     }
 }

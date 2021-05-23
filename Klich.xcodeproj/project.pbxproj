@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F1022E7126598BC600E1DCC5 /* KlichLike.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1022E7026598BC600E1DCC5 /* KlichLike.swift */; };
 		F14079322658EE1800BB3F8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14079312658EE1800BB3F8F /* AppDelegate.swift */; };
 		F14079342658EE1800BB3F8F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14079332658EE1800BB3F8F /* SceneDelegate.swift */; };
 		F14079362658EE1800BB3F8F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14079352658EE1800BB3F8F /* ContentView.swift */; };
@@ -14,15 +15,17 @@
 		F140793B2658EE1900BB3F8F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F140793A2658EE1900BB3F8F /* Preview Assets.xcassets */; };
 		F140793E2658EE1900BB3F8F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F140793C2658EE1900BB3F8F /* LaunchScreen.storyboard */; };
 		F14079462658FCCC00BB3F8F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14079452658FCCC00BB3F8F /* LoginView.swift */; };
-		F14079492658FCF700BB3F8F /* KlickAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14079482658FCF700BB3F8F /* KlickAPI.swift */; };
+		F14079492658FCF700BB3F8F /* KlichAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14079482658FCF700BB3F8F /* KlichAPI.swift */; };
 		F140794B2658FD6000BB3F8F /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F140794A2658FD6000BB3F8F /* NetworkManager.swift */; };
 		F140794D2658FD7000BB3F8F /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = F140794C2658FD7000BB3F8F /* Models.swift */; };
 		F14079502658FE3400BB3F8F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F140794F2658FE3400BB3F8F /* Colors.swift */; };
 		F14079542659112B00BB3F8F /* UDManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14079532659112B00BB3F8F /* UDManager.swift */; };
 		F1407959265918E900BB3F8F /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1407958265918E900BB3F8F /* ProfileView.swift */; };
+		F1D40DDF265978DA006A7A59 /* SubmitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D40DDE265978DA006A7A59 /* SubmitView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F1022E7026598BC600E1DCC5 /* KlichLike.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KlichLike.swift; sourceTree = "<group>"; };
 		F140792E2658EE1800BB3F8F /* Klich.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Klich.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F14079312658EE1800BB3F8F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F14079332658EE1800BB3F8F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -32,12 +35,13 @@
 		F140793D2658EE1900BB3F8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F140793F2658EE1900BB3F8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F14079452658FCCC00BB3F8F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		F14079482658FCF700BB3F8F /* KlickAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KlickAPI.swift; sourceTree = "<group>"; };
+		F14079482658FCF700BB3F8F /* KlichAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KlichAPI.swift; sourceTree = "<group>"; };
 		F140794A2658FD6000BB3F8F /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		F140794C2658FD7000BB3F8F /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		F140794F2658FE3400BB3F8F /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		F14079532659112B00BB3F8F /* UDManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDManager.swift; sourceTree = "<group>"; };
 		F1407958265918E900BB3F8F /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		F1D40DDE265978DA006A7A59 /* SubmitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +55,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F1022E6F26598BAF00E1DCC5 /* Kliches */ = {
+			isa = PBXGroup;
+			children = (
+				F1022E7026598BC600E1DCC5 /* KlichLike.swift */,
+			);
+			path = Kliches;
+			sourceTree = "<group>";
+		};
 		F14079252658EE1800BB3F8F = {
 			isa = PBXGroup;
 			children = (
@@ -94,8 +106,8 @@
 			isa = PBXGroup;
 			children = (
 				F140794A2658FD6000BB3F8F /* NetworkManager.swift */,
+				F14079482658FCF700BB3F8F /* KlichAPI.swift */,
 				F140794C2658FD7000BB3F8F /* Models.swift */,
-				F14079482658FCF700BB3F8F /* KlickAPI.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -138,6 +150,8 @@
 				F14079352658EE1800BB3F8F /* ContentView.swift */,
 				F140795126590AE900BB3F8F /* Login */,
 				F1407955265917D600BB3F8F /* Profile */,
+				F1D40DDD26597891006A7A59 /* Submit */,
+				F1022E6F26598BAF00E1DCC5 /* Kliches */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -150,6 +164,14 @@
 				F14079522659112200BB3F8F /* UD */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		F1D40DDD26597891006A7A59 /* Submit */ = {
+			isa = PBXGroup;
+			children = (
+				F1D40DDE265978DA006A7A59 /* SubmitView.swift */,
+			);
+			path = Submit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,10 +250,12 @@
 				F14079322658EE1800BB3F8F /* AppDelegate.swift in Sources */,
 				F14079542659112B00BB3F8F /* UDManager.swift in Sources */,
 				F14079342658EE1800BB3F8F /* SceneDelegate.swift in Sources */,
-				F14079492658FCF700BB3F8F /* KlickAPI.swift in Sources */,
+				F1022E7126598BC600E1DCC5 /* KlichLike.swift in Sources */,
+				F14079492658FCF700BB3F8F /* KlichAPI.swift in Sources */,
 				F14079462658FCCC00BB3F8F /* LoginView.swift in Sources */,
 				F14079362658EE1800BB3F8F /* ContentView.swift in Sources */,
 				F140794D2658FD7000BB3F8F /* Models.swift in Sources */,
+				F1D40DDF265978DA006A7A59 /* SubmitView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

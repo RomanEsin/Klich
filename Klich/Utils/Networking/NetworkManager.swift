@@ -14,6 +14,8 @@ class NetworkManager {
 
         URLSession.shared.dataTask(with: request) { data, response, error in
             guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                print(String(data: data!, encoding: .utf8) as Any)
+                
                 if let error = error {
                     completion(.failure(error))
                 }
@@ -28,17 +30,22 @@ class NetworkManager {
                 return
             }
 
-            let decoder = JSONDecoder()
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
-            guard let decoded = try? decoder.decode(T.self, from: data!) else { return }
-            completion(.success(decoded))
+            print(String(data: data!, encoding: .utf8) as Any)
+
+            do {
+                let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                let decoded = try decoder.decode(T.self, from: data!)
+                completion(.success(decoded))
+            } catch {
+                completion(.failure(error))
+            }
         }.resume()
     }
 
     static func post<T: Encodable, D: Decodable>(_ url: URL, data: T, completion: @escaping (Result<D, Error>) -> Void) {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
-
         do {
             let encoder = JSONEncoder()
             encoder.keyEncodingStrategy = .convertToSnakeCase
@@ -49,6 +56,7 @@ class NetworkManager {
 
         URLSession.shared.dataTask(with: request) { data, response, error in
             guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                print(String(data: data!, encoding: .utf8) as Any)
                 if let error = error {
                     completion(.failure(error))
                 }
@@ -65,8 +73,16 @@ class NetworkManager {
                 return
             }
 
-            guard let decoded = try? JSONDecoder().decode(D.self, from: data!) else { return }
-            completion(.success(decoded))
+            print(String(data: data!, encoding: .utf8) as Any)
+
+            do {
+                let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                let decoded = try decoder.decode(D.self, from: data!)
+                completion(.success(decoded))
+            } catch {
+                completion(.failure(error))
+            }
         }.resume()
     }
 }

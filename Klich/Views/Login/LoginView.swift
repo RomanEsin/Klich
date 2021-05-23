@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LoginView: View {
 
-    @Binding var userToken: String
+    @ObservedObject var userData: UserData
     @Binding var isLoggedIn: Bool
 
     @State var isLoggingIn = false
@@ -36,12 +36,15 @@ struct LoginView: View {
                     errorText = error.localizedDescription
                     hasError = true
                 case .success(let token):
-                    withAnimation {
-                        isLoggedIn = true
-                    }
-                    userToken = token.token
+                    userData.userToken = token.token
                     UDManager.save(token.token, key: "userToken")
+                    UserDefaults.standard.synchronize()
                     print(token.token)
+                    DispatchQueue.main.async {
+                        withAnimation {
+                            isLoggedIn = true
+                        }
+                    }
                 }
             }
         }
@@ -60,12 +63,15 @@ struct LoginView: View {
                     errorText = error.localizedDescription
                     hasError = true
                 case .success(let token):
-                    withAnimation {
-                        isLoggedIn = true
-                    }
-                    userToken = token.token
+                    userData.userToken = token.token
                     UDManager.save(token.token, key: "userToken")
+                    UserDefaults.standard.synchronize()
                     print(token.token)
+                    DispatchQueue.main.async {
+                        withAnimation {
+                            isLoggedIn = true
+                        }
+                    }
                 }
             }
         }
@@ -109,7 +115,7 @@ struct LoginView: View {
                         .autocapitalization(.none)
                 }
                 .padding()
-                .background(Color.white)
+                .background(Color(UIColor.systemBackground))
                 .cornerRadius(16)
 
                 Spacer()
@@ -162,6 +168,8 @@ struct LoginView: View {
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView(userToken: .constant("2f8547ced1e6405e68c534b926447c21"), isLoggedIn: .constant(false))
+        let userData = UserData()
+        userData.user = User(username: "romanesin", password: "password", userType: 0)
+        return LoginView(userData: userData, isLoggedIn: .constant(false))
     }
 }
