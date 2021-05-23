@@ -12,17 +12,22 @@ struct ContentView: View {
     @ObservedObject var userData = UserData()
     @State var isLoggedIn: Bool
 
+    @State var selectedTab = 2
+
     var body: some View {
         if isLoggedIn {
-            TabView {
-                KlichLike()
-//                SubmitView(userData: userData, klichStyle: .community)
+            TabView(selection: $selectedTab) {
+                Search(selectedTab: $selectedTab)
                     .tag(0)
                     .tabItem { Label("Поиск", systemImage: "magnifyingglass") }
 
                 SubmitView(userData: userData, klichStyle: .community)
                     .tag(1)
                     .tabItem { Label("Подать клич", systemImage: "plus.square.fill") }
+
+                ChatView()
+                    .tag(3)
+                    .tabItem { Label("Чат", systemImage: "text.bubble.fill") }
 
                 ProfileView(userData: userData)
                     .tag(2)

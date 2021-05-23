@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		F1022E7126598BC600E1DCC5 /* KlichLike.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1022E7026598BC600E1DCC5 /* KlichLike.swift */; };
+		F1022E732659E67100E1DCC5 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1022E722659E67100E1DCC5 /* Search.swift */; };
+		F1022E762659EBAA00E1DCC5 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1022E752659EBAA00E1DCC5 /* SearchView.swift */; };
+		F1022E782659EC0C00E1DCC5 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1022E772659EC0C00E1DCC5 /* ChatView.swift */; };
+		F1022E7A2659F06D00E1DCC5 /* ChatWithPersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1022E792659F06D00E1DCC5 /* ChatWithPersonView.swift */; };
 		F14079322658EE1800BB3F8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14079312658EE1800BB3F8F /* AppDelegate.swift */; };
 		F14079342658EE1800BB3F8F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14079332658EE1800BB3F8F /* SceneDelegate.swift */; };
 		F14079362658EE1800BB3F8F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14079352658EE1800BB3F8F /* ContentView.swift */; };
@@ -26,6 +30,10 @@
 
 /* Begin PBXFileReference section */
 		F1022E7026598BC600E1DCC5 /* KlichLike.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KlichLike.swift; sourceTree = "<group>"; };
+		F1022E722659E67100E1DCC5 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
+		F1022E752659EBAA00E1DCC5 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		F1022E772659EC0C00E1DCC5 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		F1022E792659F06D00E1DCC5 /* ChatWithPersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatWithPersonView.swift; sourceTree = "<group>"; };
 		F140792E2658EE1800BB3F8F /* Klich.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Klich.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F14079312658EE1800BB3F8F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F14079332658EE1800BB3F8F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -58,9 +66,20 @@
 		F1022E6F26598BAF00E1DCC5 /* Kliches */ = {
 			isa = PBXGroup;
 			children = (
+				F1022E722659E67100E1DCC5 /* Search.swift */,
+				F1022E752659EBAA00E1DCC5 /* SearchView.swift */,
 				F1022E7026598BC600E1DCC5 /* KlichLike.swift */,
 			);
 			path = Kliches;
+			sourceTree = "<group>";
+		};
+		F1022E742659E8BD00E1DCC5 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				F1022E772659EC0C00E1DCC5 /* ChatView.swift */,
+				F1022E792659F06D00E1DCC5 /* ChatWithPersonView.swift */,
+			);
+			path = Chat;
 			sourceTree = "<group>";
 		};
 		F14079252658EE1800BB3F8F = {
@@ -152,6 +171,7 @@
 				F1407955265917D600BB3F8F /* Profile */,
 				F1D40DDD26597891006A7A59 /* Submit */,
 				F1022E6F26598BAF00E1DCC5 /* Kliches */,
+				F1022E742659E8BD00E1DCC5 /* Chat */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -244,15 +264,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1022E732659E67100E1DCC5 /* Search.swift in Sources */,
+				F1022E7A2659F06D00E1DCC5 /* ChatWithPersonView.swift in Sources */,
 				F140794B2658FD6000BB3F8F /* NetworkManager.swift in Sources */,
 				F14079502658FE3400BB3F8F /* Colors.swift in Sources */,
 				F1407959265918E900BB3F8F /* ProfileView.swift in Sources */,
 				F14079322658EE1800BB3F8F /* AppDelegate.swift in Sources */,
 				F14079542659112B00BB3F8F /* UDManager.swift in Sources */,
 				F14079342658EE1800BB3F8F /* SceneDelegate.swift in Sources */,
+				F1022E782659EC0C00E1DCC5 /* ChatView.swift in Sources */,
 				F1022E7126598BC600E1DCC5 /* KlichLike.swift in Sources */,
 				F14079492658FCF700BB3F8F /* KlichAPI.swift in Sources */,
 				F14079462658FCCC00BB3F8F /* LoginView.swift in Sources */,
+				F1022E762659EBAA00E1DCC5 /* SearchView.swift in Sources */,
 				F14079362658EE1800BB3F8F /* ContentView.swift in Sources */,
 				F140794D2658FD7000BB3F8F /* Models.swift in Sources */,
 				F1D40DDF265978DA006A7A59 /* SubmitView.swift in Sources */,

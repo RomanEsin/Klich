@@ -109,10 +109,10 @@ struct SubmitView: View {
                         .padding(.bottom, 4)
                     HStack {
                         QuickSign(image: Image(systemName: "paperplane.fill"))
-                        QuickSign(image: Image(systemName: "paperplane.fill"))
-                        QuickSign(image: Image(systemName: "paperplane.fill"))
-                        QuickSign(image: Image(systemName: "paperplane.fill"))
-                        QuickSign(image: Image(systemName: "paperplane.fill"))
+                        QuickSign(image: Image(systemName: "highlighter"))
+                        QuickSign(image: Image(systemName: "doc.text.magnifyingglass"))
+                        QuickSign(image: Image(systemName: "rectangle.stack.person.crop.fill"))
+                        QuickSign(image: Image(systemName: "graduationcap.fill"))
                     }
                 }
 
@@ -154,7 +154,28 @@ struct SubmitView: View {
             }
             .padding(.horizontal)
             .sheet(isPresented: $isPublishOpened, content: {
-                Text("Опубликовано")
+                VStack {
+                    Spacer()
+                    Text("Опубликовано")
+                        .font(.title3.bold())
+                    Spacer()
+                    Button(action: {
+                        isPublishOpened = false
+                    }, label: {
+                        VStack {
+                            Text("Готово")
+                                .font(.title3.bold())
+                        }
+                        .foregroundColor(.white)
+                        .frame(height: 25)
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(Color.klichPurple)
+                        .cornerRadius(16)
+                    })
+                    .padding(.horizontal)
+                    .padding(.bottom, 60)
+                }
             })
         }
     }

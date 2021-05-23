@@ -9,6 +9,8 @@ import SwiftUI
 
 struct KlichLike: View {
 
+    @Binding var selectedTab: Int
+
     @State var items: [KlichStyle] = [.communityCell, .communityCell2, .communityCell3]
     @State var currentKlich = KlichStyle.communityCell
     @State var translation = CGSize.zero
@@ -42,8 +44,25 @@ struct KlichLike: View {
             }
             .padding(.horizontal)
             VStack {
-                Text("Поиск Совпадений")
-                    .font(.title3.bold())
+                HStack {
+                    Image(systemName: "chevron.left")
+                        .font(.title3.bold())
+                        .foregroundColor(.accentColor)
+                        .onTapGesture {
+                            presentationMode.wrappedValue.dismiss()
+                        }
+
+                    Spacer()
+                    Text("Поиск Совпадений")
+                        .font(.title3.bold())
+                    Spacer()
+
+                    Image(systemName: "chevron.left")
+                        .opacity(0)
+                        .font(.title3.bold())
+                }
+                .padding(.top, 4)
+                .padding(.horizontal)
                 VStack {
                     Spacer()
                     Image(systemName: "person.3.fill")
@@ -169,6 +188,7 @@ struct KlichLike: View {
 
                     Button(action: {
                         isMatch = false
+                        selectedTab = 3
                     }, label: {
                         VStack {
                             Text("Связаться")
@@ -189,11 +209,12 @@ struct KlichLike: View {
                 .background(LinearGradient(gradient: Gradient(colors: [Color.klichPurple.opacity(0.3), Color.klichPurple.opacity(0.7)]), startPoint: .top, endPoint: .bottom))
             })
         }
+        .navigationBarHidden(true)
     }
 }
 
 struct KlichLike_Previews: PreviewProvider {
     static var previews: some View {
-        KlichLike()
+        KlichLike(selectedTab: .constant(1))
     }
 }

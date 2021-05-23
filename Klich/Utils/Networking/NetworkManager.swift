@@ -14,7 +14,9 @@ class NetworkManager {
 
         URLSession.shared.dataTask(with: request) { data, response, error in
             guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                print(String(data: data!, encoding: .utf8) as Any)
+                if let data = data {
+                    print(String(data: data, encoding: .utf8) as Any)
+                }
                 
                 if let error = error {
                     completion(.failure(error))
@@ -30,13 +32,15 @@ class NetworkManager {
                 return
             }
 
-            print(String(data: data!, encoding: .utf8) as Any)
 
             do {
-                let decoder = JSONDecoder()
-                decoder.keyDecodingStrategy = .convertFromSnakeCase
-                let decoded = try decoder.decode(T.self, from: data!)
-                completion(.success(decoded))
+                if let data = data {
+                    print(String(data: data, encoding: .utf8) as Any)
+                    let decoder = JSONDecoder()
+                    decoder.keyDecodingStrategy = .convertFromSnakeCase
+                    let decoded = try decoder.decode(T.self, from: data)
+                    completion(.success(decoded))
+                }
             } catch {
                 completion(.failure(error))
             }
