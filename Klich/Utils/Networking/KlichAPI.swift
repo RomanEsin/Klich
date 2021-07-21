@@ -43,7 +43,7 @@ class KlichAPI {
         let url = rootURL.appendingPathComponent("categories").appendingPathComponent("my")
         var comps = URLComponents(url: url, resolvingAgainstBaseURL: true)!
         comps.queryItems = [
-            URLQueryItem(name: "user_token", value: token)
+            URLQueryItem(name: "user_token", value: token),
         ]
         NetworkManager.get(comps.url!, completion: completion)
     }
